@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\App\Http\Controllers\CandidateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('candidates', 'App\Http\Controllers\CandidateController@index');
+Route::get('candidates/{id}', 'App\Http\Controllers\CandidateController@show');
+Route::post('candidates', 'App\Http\Controllers\CandidateController@store');
+Route::put('candidates/{id}', 'App\Http\Controllers\CandidateController@update');
+Route::delete('candidates/{id}', 'App\Http\Controllers\CandidateController@delete');
